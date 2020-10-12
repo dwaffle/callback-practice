@@ -1,8 +1,14 @@
-function HelloWorld(message: string) {
-    console.log("Hello World!");
-    const updatedMessage = { f: 1, b: 2 };
-
-    return 0;
+function HelloWorld(callback: () => void) {
+    //Experiment: what happens when this code is run?
+    console.log("Test");
+    setTimeout(callback, 5000);
+    console.log("Test2");
+    //Results: Test \n Test2 \n (Goodbye! (after 5 seconds total.))
 }
 
-HelloWorld("Goodbye cruel world");
+function Goodbye()
+{
+    console.log("Goodbye!");
+}
+
+HelloWorld(Goodbye);
